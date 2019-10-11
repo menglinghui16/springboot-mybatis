@@ -1,5 +1,5 @@
 这个项目的日志配置时自己配置，感觉有点问题，在windows系统可以自动生成文件夹testlogs，
-部署到linux上之后就不会自动生成testlogs文件夹了，而且也不会切分日志；不知道咋回事，还是使用兴飞的日志配置（log4j2.xml）吧，以后再研究日志这块；
+部署到linux上之后就不会自动生成testlogs文件夹了，而且也不会切分日志；不知道咋回事，还是使用这个日志配置（log4j2.xml）吧，以后再研究日志这块；
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 设置log4j2的自身log级别为warn -->
 <!-- OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
