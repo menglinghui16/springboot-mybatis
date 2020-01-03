@@ -3,6 +3,8 @@ package org.spring.springboot.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
@@ -31,7 +33,9 @@ public class CityRestController {
 
     @RequestMapping(value = "/api/city")
     public City findOneCity(@RequestParam(value = "cityName", required = true) String cityName) {
-        return cityService.findCityByName(cityName);
+        City city=  cityService.findCityByName(cityName);
+        log.info("查询结果city:"+ JSONObject.toJSONString(city));
+        return city;
     }
     
     @RequestMapping(value = "/test11")

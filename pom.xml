@@ -79,8 +79,17 @@
             <version>1.4.3.RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- fastjson-->
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.31</version>
+        </dependency>
     </dependencies>
-    
+
+
     <!-- 添加maven插件 -->
     <build>
 		<plugins>

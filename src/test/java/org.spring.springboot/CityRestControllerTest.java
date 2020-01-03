@@ -15,6 +15,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -41,8 +43,35 @@ public class CityRestControllerTest {
         String result = mvc.perform(MockMvcRequestBuilders.put("/test11")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
-        System.out.println("result:"+result);
+        System.out.println("result:" + result);
     }
+
+//    @Test
+//    public void savePlans() throws Exception {
+//        String json = "{\n" +
+//                "\t\"id\":1,\n" +
+//                "\t\"code\":\"yanwu\",\n" +
+//                "\t\"warningClass\":2,\n" +
+//                "    \"departmentId\":1,\n" +
+//                "     \"planId\":1\n" +
+//                "}";
+//        mvc.perform(MockMvcRequestBuilders.put("/abnormal-plans/")
+//                .contentType(MediaType.APPLICATION_JSON_UTF8)
+//                .content(json.getBytes()))
+//                .andExpect(status().isOk());
+//    }
+
+    @Test
+    public void getPlansMessages() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/api/city")
+                .param("cityName", "滨州市")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(jsonPath("$.cityName").value("滨州市"));
+        System.out.println("测试结束");
+    }
+
 
 
 
